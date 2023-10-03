@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <title>Atividade</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <button>ADD</button>
+    <button>REMOVE LAST</button>
+    <ul>
+
+    </ul>
+
+
+    <script>
+
+        function removerItem(botao) {
+            botao.target.parentElement.remove()
+        }
+
+        let botoes = document.querySelectorAll("button");
+
+        for (let botao of botoes) {
+            botao.addEventListener("click", (msg) => {
+                let lista = document.querySelector("ul");
+                let itens = document.querySelectorAll("li");
+
+                switch (botao.innerText) {
+                    case "ADD":
+                        if (itens.length < 15) {
+                            let itemNovo = document.createElement("li");
+                            let botaoNovo = document.createElement("button");
+
+                            botaoNovo.innerText = `REMOVE ${itens.length + 1}`;
+
+                            botaoNovo.addEventListener("click", removerItem);
+
+                            itemNovo.append(botaoNovo);
+                            lista.append(itemNovo);
+                        }
+
+                        break;
+
+                    case "REMOVE LAST":
+                        if (itens.length > 0) {
+                            itens[itens.length - 1].remove("button");
+                        }
+                        break;
+                }
+            }
+            )
+        }
+
+    </script>
+</body>
+
+</html>

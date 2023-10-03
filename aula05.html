@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Atividade</title>
+        <style>
+            .azul {
+                color: blue;
+            }
+        </style>
+    </head>
+
+    <body>
+        <button>Botão 1</button>
+        <button>Botão 2</button>
+        <button>Deixar Azul</button>
+        <ul>
+
+        </ul>
+
+        <script>
+            let botoes = document.querySelectorAll("button");
+
+            for (let botao of botoes) {
+                botao.addEventListener("click", (msg) => {
+                    let lista = document.querySelector("ul");
+                    let itens = document.querySelectorAll("li");
+                    switch (botao.innerText) {
+                        case "Botão 1":
+                            lista.innerHTML += "<li>1</li>";
+                            break;
+                        case "Botão 2":
+                            console.log("Botao N2");
+                            lista.innerHTML += "<li>2</li>";
+                            break;
+                        case "Deixar Azul":
+                            itens[itens.length - 1].classList.add("azul");
+                            break;
+                    }
+                })
+            }
+        </script>
+    </body>
+</html>
